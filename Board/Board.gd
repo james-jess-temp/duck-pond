@@ -24,11 +24,19 @@ func _remove_piece_from_layer(piece: Piece, layer_id: int):
 	var parent: Node2D = _layers[layer_id]
 	parent.remove_child(piece)
 
-func load_grid(grid: BoardGrid) -> void:
-	_grid = grid
+func load_level(level: Level) -> void:
+	var grid: BoardGrid = BoardGrid.new(level.size)
 	grid.piece_added.connect(_on_piece_added)
 	grid.piece_moved.connect(_on_piece_moved)
 	grid.piece_removed.connect(_on_piece_removed)
+
+	for p in level.pieces:
+		var piece = p.piece_scene.instantiate()
+		grid.add_piece(piece, p.position)
+
+
+
+	_grid = grid
 
 func _on_piece_added(piece: Piece, layer_id: int) -> void:
 	_add_piece_to_layer(piece, layer_id)

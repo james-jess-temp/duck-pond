@@ -20,7 +20,7 @@ func _init_layers(size: Vector2i):
 		layer.piece_removed.connect(_on_remove_piece_finished)
 		_layers[l] = layer
 
-func get_layer_for_piece(piece: Piece):
+func _get_layer_for_piece(piece: Piece):
 	if (piece is EntityPiece):
 		return _layers[Global.Layer.ENTITY]
 	elif (piece is ObstaclePiece):
@@ -30,17 +30,17 @@ func get_layer_for_piece(piece: Piece):
 		return null
 
 func add_piece(piece: Piece, pos: Vector2i):
-	var layer = get_layer_for_piece(piece)
+	var layer = _get_layer_for_piece(piece)
 	if (!layer): return
 	layer.add_piece(piece, pos)
 
 func move_piece(piece: Piece, pos: Vector2i):
-	var layer = get_layer_for_piece(piece)
+	var layer = _get_layer_for_piece(piece)
 	if (!layer): return
 	layer.move_piece(piece, pos)
 
-func remove_piece(piece: Piece, pos: Vector2i):
-	var layer = get_layer_for_piece(piece)
+func remove_piece(piece: Piece):
+	var layer = _get_layer_for_piece(piece)
 	if (!layer): return
 	layer.remove_piece(piece)
 
