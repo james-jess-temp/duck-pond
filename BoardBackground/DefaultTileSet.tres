@@ -1,0 +1,52 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dmlf30q6obkgt"]
+
+[ext_resource type="Texture2D" uid="uid://ivkbnsin8rtc" path="res://_assets/BoardBackground/test1.png" id="1_11x6s"]
+[ext_resource type="Texture2D" uid="uid://dhjwjsk8otcb1" path="res://_assets/BoardBackground/_default.png" id="1_crkwl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cm8rx"]
+texture = ExtResource("1_11x6s")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lexf"]
+resource_name = "Default"
+texture = ExtResource("1_crkwl")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+2:0/0 = 0
+
+[resource]
+tile_size = Vector2i(256, 256)
+sources/1 = SubResource("TileSetAtlasSource_1lexf")
+sources/0 = SubResource("TileSetAtlasSource_cm8rx")
