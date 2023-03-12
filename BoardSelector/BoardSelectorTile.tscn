@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b556muv1sjyiv"]
+
+[ext_resource type="Script" path="res://BoardSelector/BoardSelectorTile.gd" id="1_cmmk8"]
+[ext_resource type="Texture2D" uid="uid://djf0khhg1vtgg" path="res://_assets/BoardSelectorTile/_default.png" id="1_ijuf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_308yj"]
+size = Vector2(64, 64)
+
+[node name="BoardSelectorTile" type="Node2D"]
+script = ExtResource("1_cmmk8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ijuf3")
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("RectangleShape2D_308yj")
+
+[connection signal="input_event" from="InteractArea" to="." method="_on_interact_area_input_event"]

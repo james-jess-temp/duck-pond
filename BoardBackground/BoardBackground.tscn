@@ -9,3 +9,4 @@ script = ExtResource("1_x3adw")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_dxnva")
 format = 2
+layer_0/name = "default"

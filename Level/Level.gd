@@ -2,10 +2,12 @@ class_name Level extends Object
 
 const Piece = {
 	Entity = {
-		DEFAULT = preload("res://Piece/EntityPiece.tscn")
+		DEFAULT = preload("res://Piece/EntityPiece.tscn"),
+		DUCK = preload("res://Piece/entities/Duck.tscn")
 	},
 	Obstacle = {
-		DEFAULT = preload("res://Piece/ObstaclePiece.tscn")
+		DEFAULT = preload("res://Piece/ObstaclePiece.tscn"),
+		ROCK_1 = preload("res://Piece/obstacles/Rock1.tscn")
 	}
 }
 

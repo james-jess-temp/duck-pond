@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://belluoe1f61nd"
-path="res://.godot/imported/_default.png-0402d06ab444486135362bcaba67556c.ctex"
+uid="uid://cp2qycgj4rfhf"
+path="res://.godot/imported/swim-duck-side-1.png-f21d8abe241dbfe636abec1395690362.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_assets/EntityPiece/_default.png"
-dest_files=["res://.godot/imported/_default.png-0402d06ab444486135362bcaba67556c.ctex"]
+source_file="res://_assets/EntityPiece/Duck/side/swim-duck-side-1.png"
+dest_files=["res://.godot/imported/swim-duck-side-1.png-f21d8abe241dbfe636abec1395690362.ctex"]
 
 [params]
 

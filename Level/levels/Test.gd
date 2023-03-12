@@ -5,7 +5,7 @@ func _init() -> void:
 	theme = Global.LevelTheme.BASIC
 	size = Vector2i(10, 10)
 	pieces = [
-		LevelPiece.new(Piece.Obstacle.DEFAULT, 0, 0),
-		LevelPiece.new(Piece.Obstacle.DEFAULT, 1, 2),
-		LevelPiece.new(Piece.Entity.DEFAULT, 2, 4)
+		LevelPiece.new(Piece.Entity.DUCK, 1, 1),
+		LevelPiece.new(Piece.Obstacle.ROCK_1, 1, 1),
+		LevelPiece.new(Piece.Obstacle.ROCK_1, 1, 2),
 	]

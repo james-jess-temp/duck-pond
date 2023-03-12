@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcd2vv1ypipf0"]
 
 [ext_resource type="Script" path="res://Test.gd" id="1_7q6u8"]
-[ext_resource type="PackedScene" uid="uid://ckv5bvnmv6jxw" path="res://Board/Board.tscn" id="2_6b2hu"]
+[ext_resource type="PackedScene" uid="uid://capm6bjx1jrnq" path="res://Game/Game.tscn" id="2_2fhtq"]
 
-[node name="Test" type="Node2D"]
+[node name="Test" type="Node"]
 script = ExtResource("1_7q6u8")
 
-[node name="Board" parent="." instance=ExtResource("2_6b2hu")]
+[node name="Game" parent="." instance=ExtResource("2_2fhtq")]

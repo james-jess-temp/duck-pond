@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsjs2m5nalpsu"]
+
+[ext_resource type="Script" path="res://BoardSelector/BoardSelector.gd" id="1_85tda"]
+
+[node name="BoardSelector" type="Node2D"]
+script = ExtResource("1_85tda")
