@@ -44,6 +44,9 @@ func remove_piece(piece: Piece):
 	if (!layer): return
 	layer.remove_piece(piece)
 
+func is_free_space(pos: Vector2i, layer_id: int):
+	return _layers[layer_id].is_grid_position_empty(pos)
+
 func _on_add_piece_finished(piece: Piece, layer_id: int):
 	piece_added.emit(piece, layer_id)
 

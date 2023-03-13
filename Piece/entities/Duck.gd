@@ -9,7 +9,10 @@ func _on_move(from: Vector2i, to: Vector2i) -> void:
 	if (dominant_direction.x != 0): # Moving horizontally
 		_sprite.set_animation("moving_side")
 	else: # Moving vertically
-		_sprite.set_animation("moving_back")
+		if (dominant_direction.y > 0):
+			_sprite.set_animation("idle_front") # Using idle for moving
+		else:
+			_sprite.set_animation("moving_back")
 
 	if (from.x > to.x):
 		_sprite.flip_h = true
@@ -22,7 +25,9 @@ func _on_move_finished() -> void:
 	var current_animation: String = _sprite.get_animation()
 	if (current_animation == "moving_side"):
 		_sprite.set_animation("idle_side")
-	if (current_animation == "moving_back"):
+	elif (current_animation == "idle_front"):
+		_sprite.set_animation("idle_front") # Using idle for moving
+	elif (current_animation == "moving_back"):
 		_sprite.set_animation("idle_back")
 
 	_bubble_particles.set_emitting(false)

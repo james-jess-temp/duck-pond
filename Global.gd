@@ -21,12 +21,10 @@ enum SelectorType {
 	DISALLOW
 }
 
-# Super janky
-var LEVELS: Array[Level] = [
-	preload("res://Level/levels/Test.gd").new()
-]
-
 # Also super janky
 var Action: Dictionary = {
-	TEST = preload("res://Action/actions/Test.gd").new()
+	TEST = preload("res://Action/actions/Test.gd").new(),
+	STRAIGHT_1 = preload("res://Action/actions/Straight1.gd").new(),
+	STRAIGHT_2 = preload("res://Action/actions/Straight2.gd").new(),
+	STRAIGHT_3 = preload("res://Action/actions/Straight3.gd").new(),
 }

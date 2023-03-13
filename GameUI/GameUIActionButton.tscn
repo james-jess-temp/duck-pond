@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvayyqx8dldc7"]
+
+[ext_resource type="Script" path="res://GameUI/GameUIActionButton.gd" id="1_j7nwp"]
+[ext_resource type="Texture2D" uid="uid://dmdwvgsk7wjrp" path="res://_assets/GameUIAction/default/_default.png" id="2_2822d"]
+[ext_resource type="Texture2D" uid="uid://cg3iy10fl7cqh" path="res://_assets/GameUIAction/pressed/_default.png" id="3_bh5ja"]
+[ext_resource type="Texture2D" uid="uid://bib6y0wxlpvv5" path="res://_assets/GameUIAction/hover/_default.png" id="4_15bvr"]
+[ext_resource type="Texture2D" uid="uid://dfb8beb1vipoy" path="res://_assets/GameUIAction/disabled/_default.png" id="5_kcgqs"]
+[ext_resource type="Texture2D" uid="uid://df3e3q3enq2gd" path="res://_assets/GameUIAction/_default.png" id="6_bge6y"]
+
+[node name="GameUIActionButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_j7nwp")
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_top = -64.0
+offset_right = 128.0
+tooltip_text = "Test"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_2822d")
+texture_pressed = ExtResource("3_bh5ja")
+texture_hover = ExtResource("4_15bvr")
+texture_disabled = ExtResource("5_kcgqs")
+
+[node name="MarginContainer" type="MarginContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="ButtonIcon" type="TextureRect" parent="Button/MarginContainer/HBoxContainer"]
+process_mode = 4
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("6_bge6y")
+
+[node name="ButtonLabel" type="Label" parent="Button/MarginContainer/HBoxContainer"]
+process_mode = 4
+layout_mode = 2
+size_flags_horizontal = 10
+text = "x99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

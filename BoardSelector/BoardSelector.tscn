@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://BoardSelector/BoardSelector.gd" id="1_85tda"]
 
 [node name="BoardSelector" type="Node2D"]
+process_priority = 1
 script = ExtResource("1_85tda")

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://terc0giwfgh4"]
+[gd_resource type="SpriteFrames" load_steps=28 format=3 uid="uid://terc0giwfgh4"]
 
 [ext_resource type="Texture2D" uid="uid://cevrebntg0yq6" path="res://_assets/EntityPiece/Duck/back/back-duck-idle-1.png" id="1_egcdp"]
 [ext_resource type="Texture2D" uid="uid://eb8s665ct5vs" path="res://_assets/EntityPiece/Duck/side/idle-duck-side-1.png" id="1_msrbo"]
@@ -12,6 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://cg4ortrlbtaq" path="res://_assets/EntityPiece/Duck/side/idle-duck-side-5.png" id="5_wns4q"]
 [ext_resource type="Texture2D" uid="uid://dctnjsr2i0uy4" path="res://_assets/EntityPiece/Duck/back/back-duck-idle-6.png" id="6_qen5q"]
 [ext_resource type="Texture2D" uid="uid://b0f1dt13nsujd" path="res://_assets/EntityPiece/Duck/side/idle-duck-side-6.png" id="6_rdfh3"]
+[ext_resource type="Texture2D" uid="uid://d1gc7kfcsqr68" path="res://_assets/EntityPiece/Duck/front/front-face-1.png" id="7_gdgo7"]
+[ext_resource type="Texture2D" uid="uid://c1cxppbnckh7l" path="res://_assets/EntityPiece/Duck/front/front-face-2.png" id="8_fiw6i"]
+[ext_resource type="Texture2D" uid="uid://c4myuh7hbsu42" path="res://_assets/EntityPiece/Duck/front/front-face-3.png" id="9_xg6bf"]
+[ext_resource type="Texture2D" uid="uid://ix1ct7okt8sk" path="res://_assets/EntityPiece/Duck/front/front-face-4.png" id="10_jedt7"]
+[ext_resource type="Texture2D" uid="uid://bqgjil4rptgvg" path="res://_assets/EntityPiece/Duck/front/front-face-5.png" id="11_jyy3l"]
+[ext_resource type="Texture2D" uid="uid://qn7ma1vp1g8l" path="res://_assets/EntityPiece/Duck/front/front-face-6.png" id="12_8k35h"]
 [ext_resource type="Texture2D" uid="uid://ko25efmulkjm" path="res://_assets/EntityPiece/Duck/back/back-swim-duck-1.png" id="13_qrq2j"]
 [ext_resource type="Texture2D" uid="uid://ddjy1tjm8o2kk" path="res://_assets/EntityPiece/Duck/back/back-swim-duck-2.png" id="14_s80xt"]
 [ext_resource type="Texture2D" uid="uid://b06xehoim0cdk" path="res://_assets/EntityPiece/Duck/back/back-swim-duck-3.png" id="15_im7rl"]
@@ -47,7 +53,25 @@ animations = [{
 "name": &"idle_back",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gdgo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fiw6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xg6bf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jedt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jyy3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8k35h")
+}],
 "loop": true,
 "name": &"idle_front",
 "speed": 5.0

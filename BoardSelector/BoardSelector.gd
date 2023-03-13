@@ -4,7 +4,9 @@ signal selector_clicked(pos, type)
 
 var _tile_scene = preload("res://BoardSelector/BoardSelectorTile.tscn")
 var _list: Array[BoardSelectorTile]
+var _list_modified: Array[BoardSelectorTile]
 var _grid: Array[Array]
+var _size: Vector2i
 
 func _ready() -> void:
 	_list = []
@@ -20,7 +22,9 @@ func _init_grid(size: Vector2i) -> void:
 		grid[x] = y
 	_grid = grid
 
-func draw_selectors(size: Vector2i) -> void:
+func init_selectors(size: Vector2i) -> void:
+	reset()
+	_size = size
 	_init_grid(size)
 	_list.resize(size.x * size.y)
 	for x in range(size.x):
@@ -39,8 +43,17 @@ func draw_selectors(size: Vector2i) -> void:
 			selector.clicked.connect(_on_tile_clicked)
 
 func set_tile(pos: Vector2i, type: int):
-	_grid[pos.x][pos.y].set_type(type)
+	var tile = _grid[pos.x][pos.y]
+	tile.set_type(type)
+	if (type != Global.SelectorType.DEFAULT):
+		_list_modified.push_back(tile)
+
+func reset() -> void:
+	for t in _list_modified:
+		t.set_type(Global.SelectorType.DEFAULT)
+	_list_modified = []
 
 func _on_tile_clicked(pos: Vector2i, type: int) -> void:
+	if (type != Global.SelectorType.ALLOW): return
 	selector_clicked.emit(pos, type)
 

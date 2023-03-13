@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://caws83ne0mvor"]
+
+[ext_resource type="PackedScene" uid="uid://b44tymo5ymjx5" path="res://Piece/EntityPiece.tscn" id="1_c6iwj"]
+[ext_resource type="Texture2D" uid="uid://bj3ueer1i4lun" path="res://_assets/EntityPiece/Duckling/baby-duck-1.png" id="2_j8e15"]
+[ext_resource type="Script" path="res://Piece/entities/Duckling.gd" id="2_o076e"]
+[ext_resource type="Texture2D" uid="uid://djs5u4vsj5pji" path="res://_assets/EntityPiece/Duckling/baby-duck-2.png" id="3_0oiq7"]
+[ext_resource type="Texture2D" uid="uid://dw8yn1b5egx1y" path="res://_assets/EntityPiece/Duckling/baby-duck-3.png" id="4_xvgf8"]
+[ext_resource type="Texture2D" uid="uid://ycl2ljsmhtfr" path="res://_assets/EntityPiece/Duckling/baby-duck-4.png" id="5_ohpb5"]
+[ext_resource type="Texture2D" uid="uid://cckvbcr2uu6x1" path="res://_assets/EntityPiece/Duckling/baby-duck-5.png" id="6_jf0uk"]
+[ext_resource type="Texture2D" uid="uid://l1fa5oyn1x4h" path="res://_assets/EntityPiece/Duckling/baby-duck-6.png" id="7_twvwu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n0pqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j8e15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0oiq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xvgf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ohpb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jf0uk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_twvwu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Entity" instance=ExtResource("1_c6iwj")]
+script = ExtResource("2_o076e")
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_n0pqh")
+autoplay = "default"

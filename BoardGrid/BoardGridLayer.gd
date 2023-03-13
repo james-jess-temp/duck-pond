@@ -24,14 +24,14 @@ func _init_grid(size: Vector2i) -> void:
 		grid[x] = y
 	_grid = grid
 
-func _is_grid_position_empty(pos: Vector2i) -> bool:
+func is_grid_position_empty(pos: Vector2i) -> bool:
 	return _grid[pos.x][pos.y] == null
 
 func get_layer_id() -> int:
 	return _layer_id
 
 func add_piece(piece: Piece, pos: Vector2i) -> void:
-	if (!_is_grid_position_empty(pos)):
+	if (!is_grid_position_empty(pos)):
 		push_warning("Adding piece in non-empty position")
 		return
 
@@ -41,7 +41,7 @@ func add_piece(piece: Piece, pos: Vector2i) -> void:
 	piece_added.emit(piece, _layer_id)
 
 func move_piece(piece: Piece, pos: Vector2i) -> void:
-	if (!_is_grid_position_empty(pos)):
+	if (!is_grid_position_empty(pos)):
 		push_warning("Moving piece to non-empty position")
 		return
 

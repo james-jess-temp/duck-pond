@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://basignfhlf7dv"]
+
+[ext_resource type="Script" path="res://GameUI/GameUIOptions.gd" id="1_viror"]
+[ext_resource type="Texture2D" uid="uid://dy50cbdoj2d7t" path="res://_assets/GameUIOptions/home/_default.png" id="2_h0ex4"]
+[ext_resource type="Texture2D" uid="uid://djqnc2wykp1ue" path="res://_assets/GameUIOptions/reset/_default.png" id="3_afrcs"]
+
+[node name="GameUIOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_viror")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 132.0
+grow_horizontal = 0
+
+[node name="HomeButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_h0ex4")
+
+[node name="ResetButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_afrcs")
+
+[connection signal="pressed" from="VBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
