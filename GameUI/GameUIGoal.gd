@@ -15,7 +15,7 @@ func init_goals(n: int) -> void:
 		_icon_container.add_child(icon)
 
 func mark_goal():
-	var icon = _icons.pop_front()
+	var icon = _icons.pop_back()
 	icon.set_enabled(false)
 
 func reset():

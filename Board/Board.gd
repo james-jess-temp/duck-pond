@@ -2,6 +2,8 @@ class_name Board extends Node2D
 
 signal level_loaded(level: Level)
 signal action_finished()
+signal goal_obtained()
+signal level_complete()
 
 @onready var _board_background: Node2D = $BoardBackground
 @onready var _board_selector: Node2D = $BoardSelector
@@ -12,6 +14,9 @@ var _tweener: Tween
 var _grid: BoardGrid
 var _player: Piece
 var _level: Level
+var _goal_count: int
+var _move_queue: Array
+var _delete_queue: Array
 
 func _ready() -> void:
 	_init_layers()
@@ -53,11 +58,32 @@ func _calc_action_rotations(action: Action) -> Array[Array]:
 
 	return action_rotations
 
+func _play_move_queue() -> void:
+	if (_move_queue.size() <= 0):
+		action_finished.emit()
+		_player._on_move_finished()
+		return
+	var move = _move_queue.pop_front()
+	print("Moving: " + str(move))
+	_grid.move_piece(_player, move)
+
+func _play_piece_removal():
+	if (_delete_queue.size() <= 0):
+		return
+
+	var piece_data = _delete_queue.pop_front()
+	print("Deleting: " + str(piece_data.piece.get_grid_position()))
+	_remove_piece_from_layer(piece_data.piece, piece_data.layer_id)
+	piece_data.piece.queue_free()
+	_play_piece_removal()
+
 func set_board_position(pos: Vector2) -> void:
 	self.set_position(pos)
 
 func load_level(level: Level) -> void:
 	_level = level
+	_goal_count = level.goal_count
+	_move_queue = []
 
 	for layer in _layer_container.get_children():
 		for piece in layer.get_children():
@@ -103,7 +129,7 @@ func mark_traversable_tiles(action: Action): # Need this here cause need to chec
 
 	var size = _level.size
 	for r in range(action_rotations.size()):
-		var moves = action_rotations[r]
+		var moves: Array = (action_rotations[r] as Array[Vector2i])
 		for m in moves:
 			if (action_rotation_flags[r] == false): continue
 			var pos: Vector2i = start_pos + m
@@ -117,7 +143,7 @@ func mark_traversable_tiles(action: Action): # Need this here cause need to chec
 
 		if (action_rotation_flags[r] == false): continue
 		var end_pos: Vector2i = start_pos + (moves[moves.size() - 1])
-		_board_selector.set_tile(end_pos, Global.SelectorType.ALLOW)
+		_board_selector.set_tile(end_pos, Global.SelectorType.ALLOW, moves)
 
 func _on_piece_added(piece: Piece, layer_id: int) -> void:
 	_add_piece_to_layer(piece, layer_id)
@@ -133,14 +159,29 @@ func _on_piece_moved(piece: Piece, layer_id: int) -> void:
 		(grid_pos.x + 0.5) * Global.TILE_SIZE.x,
 		(grid_pos.y + 0.5) * Global.TILE_SIZE.y)
 	_tweener = create_tween()
-	_tweener.tween_property(piece, "position", pos, 1).set_trans(Tween.TRANS_SINE)
-	_tweener.finished.connect(_player._on_move_finished)
-	_tweener.finished.connect(_board_selector.reset)
-	action_finished.emit()
+	_tweener.tween_property(piece, "position", pos, 0.25)#.set_trans(Tween.TRANS_SINE)
+	_tweener.finished.connect(_play_move_queue)
 
 func _on_piece_removed(piece: Piece, layer_id: int):
-	_remove_piece_from_layer(piece, layer_id)
-	piece.queue_free()
+	_delete_queue.push_back({"piece" = piece, "layer_id" = layer_id})
+	_tweener = create_tween()
+	_tweener.tween_property(piece, "scale", Vector2(0,0), 0.5).set_trans(Tween.TRANS_ELASTIC)
+	_tweener.finished.connect(_play_piece_removal)
 
-func _on_selector_clicked(pos: Vector2i, type: int) -> void:
-	_grid.move_piece(_player, pos)
+	if (piece is Duckling):
+		_goal_count -= 1
+		goal_obtained.emit()
+	if (_goal_count <= 0):
+		level_complete.emit()
+		print("Collected all ducklings!")
+
+func _on_selector_clicked(pos: Vector2i, type: int, moves: Array) -> void:
+	_move_queue = []
+	var player_pos: Vector2i = _player.get_grid_position()
+	for i in range(moves.size()):
+		moves[i] = player_pos + moves[i]
+	_move_queue = moves
+	_board_selector.reset()
+	_play_move_queue()
+
+

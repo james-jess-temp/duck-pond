@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://capm6bjx1jrnq"]
+[gd_scene load_steps=5 format=3 uid="uid://capm6bjx1jrnq"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_jfxy8"]
 [ext_resource type="PackedScene" uid="uid://ckv5bvnmv6jxw" path="res://Board/Board.tscn" id="1_y6utv"]
 [ext_resource type="PackedScene" uid="uid://7t8dlqnliqsn" path="res://GameUI/GameUI.tscn" id="3_88uhv"]
+[ext_resource type="PackedScene" uid="uid://n6gmg656w0j" path="res://GameUILevelComplete/GameUILevelComplete.tscn" id="4_c3m3c"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_jfxy8")
@@ -20,7 +21,16 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
 
+[node name="GameUILevelComplete" parent="." instance=ExtResource("4_c3m3c")]
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
 [connection signal="action_finished" from="Camera/Board" to="." method="_on_action_finished"]
+[connection signal="goal_obtained" from="Camera/Board" to="." method="_on_goal_obtained"]
 [connection signal="level_loaded" from="Camera/Board" to="." method="_on_level_loaded"]
 [connection signal="action_initiated" from="GameUI" to="." method="_on_action_initiated"]
 [connection signal="reset_initiated" from="GameUI" to="." method="_on_reset_initiated"]

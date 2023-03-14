@@ -9,6 +9,6 @@ const Icon = {
 
 func set_enabled(enabled: bool) -> void:
 	if (enabled):
-		_texture.set_texture(Icon.ENABLED)
-	else:
 		_texture.set_texture(Icon.DISABLED)
+	else:
+		_texture.set_texture(Icon.ENABLED)

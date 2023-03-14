@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq85uhwls152i"]
+[gd_scene load_steps=3 format=3 uid="uid://cq85uhwls152i"]
 
 [ext_resource type="Script" path="res://GameUI/GameUILevel.gd" id="1_aisdh"]
+[ext_resource type="FontFile" uid="uid://2wv2clpoapco" path="res://_assets/Font/Fredoka-Bold.ttf" id="2_w4prm"]
 
 [node name="GameUILevel" type="Control"]
 layout_mode = 3
@@ -15,4 +16,6 @@ script = ExtResource("1_aisdh")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_w4prm")
+theme_override_font_sizes/font_size = 64
 text = "XX-XX"

@@ -18,6 +18,9 @@ func load_level_data(level: Level) -> void:
 func action_finished() -> void:
 	_action.use_current_action()
 
+func goal_obtained() -> void:
+	_goal.mark_goal()
+
 func _on_action_initiated(action: Action) -> void:
 	action_initiated.emit(action)
 

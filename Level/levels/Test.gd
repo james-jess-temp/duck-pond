@@ -14,7 +14,7 @@ func _init() -> void:
 		LevelPiece.new(Piece.Obstacle.ROCK_1, 1, 2),
 	]
 	actions = [
-		LevelAction.new(Global.Action.STRAIGHT_1, 3),
+		LevelAction.new(Global.Action.TEST, 3),
 		LevelAction.new(Global.Action.STRAIGHT_2, 2),
 		LevelAction.new(Global.Action.STRAIGHT_3, 1),
 	]

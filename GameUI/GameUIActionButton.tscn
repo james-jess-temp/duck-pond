@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvayyqx8dldc7"]
+[gd_scene load_steps=8 format=3 uid="uid://cvayyqx8dldc7"]
 
 [ext_resource type="Script" path="res://GameUI/GameUIActionButton.gd" id="1_j7nwp"]
 [ext_resource type="Texture2D" uid="uid://dmdwvgsk7wjrp" path="res://_assets/GameUIAction/default/_default.png" id="2_2822d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bib6y0wxlpvv5" path="res://_assets/GameUIAction/hover/_default.png" id="4_15bvr"]
 [ext_resource type="Texture2D" uid="uid://dfb8beb1vipoy" path="res://_assets/GameUIAction/disabled/_default.png" id="5_kcgqs"]
 [ext_resource type="Texture2D" uid="uid://df3e3q3enq2gd" path="res://_assets/GameUIAction/_default.png" id="6_bge6y"]
+[ext_resource type="FontFile" uid="uid://2wv2clpoapco" path="res://_assets/Font/Fredoka-Bold.ttf" id="7_0uguw"]
 
 [node name="GameUIActionButton" type="Control"]
 layout_mode = 3
@@ -59,8 +60,8 @@ texture = ExtResource("6_bge6y")
 process_mode = 4
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("7_0uguw")
+theme_override_font_sizes/font_size = 16
 text = "x99"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

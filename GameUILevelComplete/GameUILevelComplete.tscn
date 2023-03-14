@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://n6gmg656w0j"]
+
+[ext_resource type="FontFile" uid="uid://2wv2clpoapco" path="res://_assets/Font/Fredoka-Bold.ttf" id="1_tgqys"]
+[ext_resource type="PackedScene" uid="uid://b76n2x3yrgbtt" path="res://UIButton/UIButton.tscn" id="2_p5bqr"]
+[ext_resource type="Texture2D" uid="uid://eb8s665ct5vs" path="res://_assets/EntityPiece/Duck/side/idle-duck-side-1.png" id="2_tl2vl"]
+
+[node name="GameUILevelComplete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Darken" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.737255)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_tgqys")
+theme_override_font_sizes/font_size = 64
+text = "Level Complete!"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("2_tl2vl")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 256
+
+[node name="HomeButton" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_p5bqr")]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Home"
+
+[node name="NextButton" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_p5bqr")]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Next"

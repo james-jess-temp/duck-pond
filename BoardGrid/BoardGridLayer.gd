@@ -41,9 +41,13 @@ func add_piece(piece: Piece, pos: Vector2i) -> void:
 	piece_added.emit(piece, _layer_id)
 
 func move_piece(piece: Piece, pos: Vector2i) -> void:
-	if (!is_grid_position_empty(pos)):
+	if (!is_grid_position_empty(pos) && !_grid[pos.x][pos.y] is Duckling):
 		push_warning("Moving piece to non-empty position")
 		return
+
+	var possible_entitiy = _grid[pos.x][pos.y]
+	if (possible_entitiy && _grid[pos.x][pos.y] is Duckling):
+		remove_piece(possible_entitiy)
 
 	var old_pos: Vector2i = piece.get_grid_position()
 	_grid[old_pos.x][old_pos.y] = null
@@ -56,6 +60,7 @@ func remove_piece(piece: Piece):
 		push_warning("Removing piece not in list")
 		return
 
+	if (piece is Duckling): piece.enable_particles(true)
 	var pos = piece.get_grid_position()
 	_list.erase(piece)
 	_grid[pos.x][pos.y] = null

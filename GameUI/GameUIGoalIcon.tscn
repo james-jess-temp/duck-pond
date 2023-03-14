@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bojyag38b2k8q"]
 
 [ext_resource type="Script" path="res://GameUI/GameUIGoalIcon.gd" id="1_67scv"]
-[ext_resource type="Texture2D" uid="uid://dlal0uw4jbtqp" path="res://_assets/GameUIGoal/enabled/_default.png" id="2_7fcrs"]
+[ext_resource type="Texture2D" uid="uid://crtfuctn0w2cr" path="res://_assets/GameUIGoal/disabled/_default.png" id="2_6imrt"]
 
 [node name="GameUILevelIcon" type="Control"]
 layout_mode = 3
@@ -24,4 +24,4 @@ offset_left = -64.0
 offset_top = -64.0
 offset_right = -64.0
 offset_bottom = -64.08
-texture = ExtResource("2_7fcrs")
+texture = ExtResource("2_6imrt")

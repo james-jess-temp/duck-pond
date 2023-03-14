@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcaqvanie0r0h"]
+
+[ext_resource type="Script" path="res://TitleScreen/TitleScreen.gd" id="1_mgkob"]
+[ext_resource type="Texture2D" uid="uid://f6551r2a7ltb" path="res://_assets/TitleScreen/title.jpg" id="1_wivwe"]
+[ext_resource type="PackedScene" uid="uid://tr8e3xe1eupo" path="res://Piece/entities/Duck.tscn" id="2_4a47e"]
+[ext_resource type="PackedScene" uid="uid://caws83ne0mvor" path="res://Piece/entities/Duckling.tscn" id="3_af30b"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mgkob")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.334, 0.334)
+texture = ExtResource("1_wivwe")
+
+[node name="Ducks" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Duck1" parent="Ducks" instance=ExtResource("2_4a47e")]
+position = Vector2(1394, 436)
+
+[node name="Duckling" parent="Ducks/Duck1" instance=ExtResource("3_af30b")]
+position = Vector2(-60, 9)
+scale = Vector2(-1, 1)
+
+[node name="Duck2" parent="Ducks" instance=ExtResource("2_4a47e")]
+position = Vector2(1396, 527)
+
+[node name="Duckling" parent="Ducks/Duck2" instance=ExtResource("3_af30b")]
+position = Vector2(-60, 9)
+scale = Vector2(-1, 1)
+
+[node name="Duck3" parent="Ducks" instance=ExtResource("2_4a47e")]
+position = Vector2(1400, 617)
+
+[node name="Duckling" parent="Ducks/Duck3" instance=ExtResource("3_af30b")]
+position = Vector2(-60, 9)
+scale = Vector2(-1, 1)

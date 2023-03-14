@@ -18,3 +18,6 @@ func _on_action_finished() -> void:
 
 func _on_reset_initiated() -> void:
 	_board.reset()
+
+func _on_goal_obtained() -> void:
+	_ui.goal_obtained()
