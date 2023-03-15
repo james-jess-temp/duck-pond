@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch2o11w06m6n5"]
+
+[ext_resource type="PackedScene" uid="uid://bpj5rdlw8pv6f" path="res://Piece/ObstaclePiece.tscn" id="1_8pe71"]
+[ext_resource type="Texture2D" uid="uid://dbj748yfsrqu4" path="res://_assets/ObstaclePiece/koi-1.png" id="2_fb7vf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swmga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fb7vf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Obstacle" instance=ExtResource("1_8pe71")]
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_swmga")

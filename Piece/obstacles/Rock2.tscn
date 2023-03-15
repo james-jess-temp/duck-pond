@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://brthkiaoy7ov8"]
+
+[ext_resource type="PackedScene" uid="uid://bpj5rdlw8pv6f" path="res://Piece/ObstaclePiece.tscn" id="1_45pfe"]
+[ext_resource type="Texture2D" uid="uid://daxwjmpp3vjiv" path="res://_assets/ObstaclePiece/rock-2.png" id="2_1qlgb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8in3s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1qlgb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Obstacle" instance=ExtResource("1_45pfe")]
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_8in3s")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://16h8ccdxg682"]
+
+[ext_resource type="PackedScene" uid="uid://bpj5rdlw8pv6f" path="res://Piece/ObstaclePiece.tscn" id="1_b0ans"]
+[ext_resource type="Texture2D" uid="uid://b8vhm4qpkgec5" path="res://_assets/ObstaclePiece/cactus-1.png" id="2_2s3dy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mws4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2s3dy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Obstacle" instance=ExtResource("1_b0ans")]
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_mws4u")

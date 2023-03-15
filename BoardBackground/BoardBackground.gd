@@ -8,8 +8,8 @@ const TileMaps = {
 
 @onready var _tilemap: TileMap = $TileMap
 
-const COVER_MIN: Vector2i = Vector2i(-15, -10)
-const COVER_MAX: Vector2i = Vector2i(15, 10)
+const COVER_MIN: Vector2i = Vector2i(-10, -10)
+const COVER_MAX: Vector2i = Vector2i(20, 20)
 
 func _ready() -> void:
 	scale = Vector2(0.25, 0.25)
