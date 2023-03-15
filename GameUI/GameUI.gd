@@ -2,6 +2,7 @@ class_name GameUI extends Control
 
 signal action_initiated(action: Action)
 signal reset_initiated()
+signal home_initiated()
 
 @onready var _level: Control = find_child("GameUILevel")
 @onready var _goal: Control = find_child("GameUIGoal")
@@ -26,3 +27,6 @@ func _on_action_initiated(action: Action) -> void:
 
 func _on_reset_initiated() -> void:
 	reset_initiated.emit()
+
+func _on_home_button_pressed() -> void:
+	home_initiated.emit()

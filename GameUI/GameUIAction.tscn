@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c45m8tnmtd21d"]
+[gd_scene load_steps=3 format=3 uid="uid://c45m8tnmtd21d"]
 
 [ext_resource type="Script" path="res://GameUI/GameUIAction.gd" id="1_u65sc"]
+[ext_resource type="PackedScene" uid="uid://cvayyqx8dldc7" path="res://GameUI/GameUIActionButton.tscn" id="2_7a31f"]
 
 [node name="GameUIAction" type="Control"]
 layout_mode = 3
@@ -18,4 +19,13 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
-theme_override_constants/separation = 64
+theme_override_constants/separation = 96
+
+[node name="GameUIActionButton3" parent="ActionButtonContainer" instance=ExtResource("2_7a31f")]
+layout_mode = 2
+
+[node name="GameUIActionButton2" parent="ActionButtonContainer" instance=ExtResource("2_7a31f")]
+layout_mode = 2
+
+[node name="GameUIActionButton" parent="ActionButtonContainer" instance=ExtResource("2_7a31f")]
+layout_mode = 2

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq85uhwls152i"]
+[gd_scene load_steps=4 format=3 uid="uid://cq85uhwls152i"]
 
 [ext_resource type="Script" path="res://GameUI/GameUILevel.gd" id="1_aisdh"]
+[ext_resource type="Texture2D" uid="uid://cspt7yuypmfp" path="res://_assets/UIButton/button-pressed.png" id="2_lydly"]
 [ext_resource type="FontFile" uid="uid://2wv2clpoapco" path="res://_assets/Font/Fredoka-Bold.ttf" id="2_w4prm"]
 
 [node name="GameUILevel" type="Control"]
@@ -12,10 +13,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aisdh")
 
-[node name="Label" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.25, 0.25)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+texture = ExtResource("2_lydly")
+
+[node name="Label" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.647059, 0.4, 0.235294, 1)
 theme_override_fonts/font = ExtResource("2_w4prm")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 128
 text = "XX-XX"
+horizontal_alignment = 1
+vertical_alignment = 1

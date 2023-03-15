@@ -77,6 +77,10 @@ func _play_piece_removal():
 	piece_data.piece.queue_free()
 	_play_piece_removal()
 
+func _level_completed() -> void:
+	level_complete.emit()
+	print("Collected all ducklings!")
+
 func set_board_position(pos: Vector2) -> void:
 	self.set_position(pos)
 
@@ -105,12 +109,12 @@ func load_level(level: Level) -> void:
 	_board_selector.init_selectors(level.size)
 	_board_selector.selector_clicked.connect(_on_selector_clicked)
 
-	_board_background.draw_background(level.size)
+	_board_background.draw_background(level.size, level.theme)
 
 	var size = level.size
 	var board_position: Vector2 = Vector2(
-		-(size.x * Global.TILE_SIZE.x) / 2,
-		-(size.y * Global.TILE_SIZE.y) / 2
+		(Global.SCREEN_SIZE.x / 2) - (Global.TILE_SIZE.x * size.x / 2),
+		(Global.SCREEN_SIZE.y / 2) - (Global.TILE_SIZE.y * size.y / 2)
 	)
 	set_board_position(board_position)
 	level_loaded.emit(level)
@@ -172,8 +176,7 @@ func _on_piece_removed(piece: Piece, layer_id: int):
 		_goal_count -= 1
 		goal_obtained.emit()
 	if (_goal_count <= 0):
-		level_complete.emit()
-		print("Collected all ducklings!")
+		_level_completed()
 
 func _on_selector_clicked(pos: Vector2i, type: int, moves: Array) -> void:
 	_move_queue = []

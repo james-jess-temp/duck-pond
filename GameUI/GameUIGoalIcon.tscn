@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bojyag38b2k8q"]
 
 [ext_resource type="Script" path="res://GameUI/GameUIGoalIcon.gd" id="1_67scv"]
-[ext_resource type="Texture2D" uid="uid://crtfuctn0w2cr" path="res://_assets/GameUIGoal/disabled/_default.png" id="2_6imrt"]
+[ext_resource type="Texture2D" uid="uid://cqy37ifftxkd2" path="res://_assets/GameUIGoal/disabled/duck-empty.png" id="2_p2sr5"]
 
 [node name="GameUILevelIcon" type="Control"]
 layout_mode = 3
@@ -14,14 +14,20 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("1_67scv")
 
-[node name="Texture" type="TextureRect" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+scale = Vector2(0.125, 0.125)
+
+[node name="Texture" type="TextureRect" parent="Control"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.05
-anchor_bottom = 0.089
-offset_left = -64.0
-offset_top = -64.0
-offset_right = -64.0
-offset_bottom = -64.08
-texture = ExtResource("2_6imrt")
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -513.0
+offset_top = -513.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_p2sr5")

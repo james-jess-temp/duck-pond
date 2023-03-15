@@ -1,37 +1,49 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvayyqx8dldc7"]
+[gd_scene load_steps=6 format=3 uid="uid://cvayyqx8dldc7"]
 
 [ext_resource type="Script" path="res://GameUI/GameUIActionButton.gd" id="1_j7nwp"]
-[ext_resource type="Texture2D" uid="uid://dmdwvgsk7wjrp" path="res://_assets/GameUIAction/default/_default.png" id="2_2822d"]
-[ext_resource type="Texture2D" uid="uid://cg3iy10fl7cqh" path="res://_assets/GameUIAction/pressed/_default.png" id="3_bh5ja"]
-[ext_resource type="Texture2D" uid="uid://bib6y0wxlpvv5" path="res://_assets/GameUIAction/hover/_default.png" id="4_15bvr"]
-[ext_resource type="Texture2D" uid="uid://dfb8beb1vipoy" path="res://_assets/GameUIAction/disabled/_default.png" id="5_kcgqs"]
-[ext_resource type="Texture2D" uid="uid://df3e3q3enq2gd" path="res://_assets/GameUIAction/_default.png" id="6_bge6y"]
+[ext_resource type="Texture2D" uid="uid://dshmadi8pvx1t" path="res://_assets/UIButton/button.png" id="2_3gl5e"]
+[ext_resource type="Texture2D" uid="uid://cspt7yuypmfp" path="res://_assets/UIButton/button-pressed.png" id="3_jnyma"]
+[ext_resource type="Texture2D" uid="uid://c8v8lncwwj4et" path="res://_assets/GameUIAction/straight-2-turn-2-turn-2.png" id="4_3ys1k"]
 [ext_resource type="FontFile" uid="uid://2wv2clpoapco" path="res://_assets/Font/Fredoka-Bold.ttf" id="7_0uguw"]
 
 [node name="GameUIActionButton" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -0.220001
+offset_bottom = 0.220001
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
 script = ExtResource("1_j7nwp")
 
-[node name="Button" type="TextureButton" parent="."]
-layout_mode = 0
-offset_top = -64.0
-offset_right = 128.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+
+[node name="Button" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -356.0
+offset_right = 512.0
+grow_vertical = 0
 tooltip_text = "Test"
 mouse_filter = 1
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_2822d")
-texture_pressed = ExtResource("3_bh5ja")
-texture_hover = ExtResource("4_15bvr")
-texture_disabled = ExtResource("5_kcgqs")
+texture_normal = ExtResource("2_3gl5e")
+texture_pressed = ExtResource("3_jnyma")
 
-[node name="MarginContainer" type="MarginContainer" parent="Button"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,24 +56,41 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Button/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 272
 
-[node name="ButtonIcon" type="TextureRect" parent="Button/MarginContainer/HBoxContainer"]
-process_mode = 4
+[node name="Control" type="Control" parent="Control/Button/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+localize_numeral_system = false
+
+[node name="ButtonIcon" type="TextureRect" parent="Control/Button/MarginContainer/HBoxContainer/Control"]
+process_mode = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 513.0
+offset_bottom = 333.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 0
 mouse_filter = 2
-texture = ExtResource("6_bge6y")
+texture = ExtResource("4_3ys1k")
 
-[node name="ButtonLabel" type="Label" parent="Button/MarginContainer/HBoxContainer"]
+[node name="ButtonLabel" type="Label" parent="Control/Button/MarginContainer/HBoxContainer"]
 process_mode = 4
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.647059, 0.4, 0.235294, 1)
 theme_override_fonts/font = ExtResource("7_0uguw")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 80
 text = "x99"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

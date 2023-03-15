@@ -1,5 +1,11 @@
 class_name BoardBackground extends Node2D
 
+const TileMaps = {
+	Global.LevelTheme.BASIC:  preload("res://BoardBackground/tilesets/BasicTileSet.tres"),
+	Global.LevelTheme.ASIA:   preload("res://BoardBackground/tilesets/AsiaTileSet.tres"),
+	Global.LevelTheme.DESERT: preload("res://BoardBackground/tilesets/DesertTileSet.tres")
+}
+
 @onready var _tilemap: TileMap = $TileMap
 
 const COVER_MIN: Vector2i = Vector2i(-15, -10)
@@ -8,7 +14,10 @@ const COVER_MAX: Vector2i = Vector2i(15, 10)
 func _ready() -> void:
 	scale = Vector2(0.25, 0.25)
 
-func draw_background(size: Vector2i) -> void:
+func draw_background(size: Vector2i, theme: int = Global.LevelTheme.BASIC) -> void:
+	var tilemap = TileMaps[theme]
+	_tilemap.set_tileset(tilemap)
+
 	var cover_cells: Array[Vector2i]
 	var cover_size: Vector2i = COVER_MAX - COVER_MIN
 	cover_cells.resize(cover_size.x * cover_size.y)

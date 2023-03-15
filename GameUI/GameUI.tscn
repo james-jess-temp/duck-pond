@@ -102,4 +102,5 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [connection signal="action_initiated" from="MarginContainer/GameUIAction" to="." method="_on_action_initiated"]
+[connection signal="home_button_pressed" from="MarginContainer/GameUIOptions" to="." method="_on_home_button_pressed"]
 [connection signal="reset_button_pressed" from="MarginContainer/GameUIOptions" to="." method="_on_reset_initiated"]

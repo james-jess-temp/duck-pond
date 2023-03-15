@@ -13,8 +13,9 @@ enum Layer {
 
 enum LevelTheme {
 	BASIC,
-	SWAMP,
-	SAHARA
+	ASIA,
+	DESERT,
+	SWAMP
 }
 
 enum SelectorType {
@@ -29,6 +30,8 @@ var Action: Dictionary = {
 	STRAIGHT_1 = preload("res://Action/actions/Straight1.gd").new(),
 	STRAIGHT_2 = preload("res://Action/actions/Straight2.gd").new(),
 	STRAIGHT_3 = preload("res://Action/actions/Straight3.gd").new(),
-	STRAIGHT_1_TURN_1 = preload("res://Action/actions/Straight1_Turn1.gd").new(),
+	STRAIGHT_2_TURN_1 = preload("res://Action/actions/Straight2_Turn1.gd").new(),
 	STRAIGHT_3_TURN_1 = preload("res://Action/actions/Straight3_Turn1.gd").new(),
 }
+
+const SCREEN_SIZE = Vector2i(1280, 720)

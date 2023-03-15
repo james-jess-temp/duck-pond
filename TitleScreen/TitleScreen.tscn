@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcaqvanie0r0h"]
+[gd_scene load_steps=7 format=3 uid="uid://bcaqvanie0r0h"]
 
 [ext_resource type="Script" path="res://TitleScreen/TitleScreen.gd" id="1_mgkob"]
 [ext_resource type="Texture2D" uid="uid://f6551r2a7ltb" path="res://_assets/TitleScreen/title.jpg" id="1_wivwe"]
 [ext_resource type="PackedScene" uid="uid://tr8e3xe1eupo" path="res://Piece/entities/Duck.tscn" id="2_4a47e"]
 [ext_resource type="PackedScene" uid="uid://caws83ne0mvor" path="res://Piece/entities/Duckling.tscn" id="3_af30b"]
+[ext_resource type="PackedScene" uid="uid://b76n2x3yrgbtt" path="res://UIButton/UIButton.tscn" id="5_lhkeg"]
+[ext_resource type="FontFile" uid="uid://2wv2clpoapco" path="res://_assets/Font/Fredoka-Bold.ttf" id="6_ytjr3"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -25,22 +27,63 @@ texture = ExtResource("1_wivwe")
 y_sort_enabled = true
 
 [node name="Duck1" parent="Ducks" instance=ExtResource("2_4a47e")]
-position = Vector2(1394, 436)
+position = Vector2(1399, 434)
 
 [node name="Duckling" parent="Ducks/Duck1" instance=ExtResource("3_af30b")]
 position = Vector2(-60, 9)
 scale = Vector2(-1, 1)
 
 [node name="Duck2" parent="Ducks" instance=ExtResource("2_4a47e")]
-position = Vector2(1396, 527)
+position = Vector2(1394, 546)
 
 [node name="Duckling" parent="Ducks/Duck2" instance=ExtResource("3_af30b")]
 position = Vector2(-60, 9)
 scale = Vector2(-1, 1)
 
 [node name="Duck3" parent="Ducks" instance=ExtResource("2_4a47e")]
-position = Vector2(1400, 617)
+position = Vector2(1397, 657)
 
 [node name="Duckling" parent="Ducks/Duck3" instance=ExtResource("3_af30b")]
 position = Vector2(-60, 9)
 scale = Vector2(-1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 320
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="By" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_ytjr3")
+theme_override_font_sizes/font_size = 24
+text = "by ceruleancerise and melosprout"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 256
+
+[node name="PlayButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_lhkeg")]
+layout_mode = 2
+text = "Play"
+
+[node name="CreditsButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_lhkeg")]
+layout_mode = 2
+text = "Credits"
+
+[connection signal="button_pressed" from="MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="button_pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

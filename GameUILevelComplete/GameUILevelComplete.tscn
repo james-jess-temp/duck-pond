@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://n6gmg656w0j"]
+[gd_scene load_steps=5 format=3 uid="uid://n6gmg656w0j"]
 
+[ext_resource type="Script" path="res://GameUILevelComplete/GameUILevelComplete.gd" id="1_d70pv"]
 [ext_resource type="FontFile" uid="uid://2wv2clpoapco" path="res://_assets/Font/Fredoka-Bold.ttf" id="1_tgqys"]
 [ext_resource type="PackedScene" uid="uid://b76n2x3yrgbtt" path="res://UIButton/UIButton.tscn" id="2_p5bqr"]
 [ext_resource type="Texture2D" uid="uid://eb8s665ct5vs" path="res://_assets/EntityPiece/Duck/side/idle-duck-side-1.png" id="2_tl2vl"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_d70pv")
 
 [node name="Darken" type="ColorRect" parent="."]
 layout_mode = 1
@@ -74,3 +76,6 @@ text = "Home"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Next"
+
+[connection signal="button_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="button_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
