@@ -3,8 +3,8 @@ class_name BoardSelectorTile extends Node2D
 signal clicked(pos: Vector2i, type: int, moves: Array[Vector2i])
 
 const Sprite = {
-#	Global.SelectorType.DEFAULT: preload("res://_assets/BoardSelectorTile/_default.png"),
-Global.SelectorType.DEFAULT: null,
+	Global.SelectorType.DEFAULT: preload("res://_assets/BoardSelectorTile/_default.png"),
+#	Global.SelectorType.DEFAULT: null,
 	Global.SelectorType.ALLOW: preload("res://_assets/BoardSelectorTile/allowed/_default.png"),
 	Global.SelectorType.DISALLOW: preload("res://_assets/BoardSelectorTile/disallowed/_default.png")
 }

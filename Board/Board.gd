@@ -146,6 +146,8 @@ func mark_traversable_tiles(action: Action): # Need this here cause need to chec
 				action_rotation_flags[r] = false
 
 		if (action_rotation_flags[r] == false): continue
+		for m in moves:
+			_board_selector.set_tile(start_pos + m, Global.SelectorType.DISALLOW, [])
 		var end_pos: Vector2i = start_pos + (moves[moves.size() - 1])
 		_board_selector.set_tile(end_pos, Global.SelectorType.ALLOW, moves)
 
