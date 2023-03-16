@@ -14,6 +14,8 @@ const DUCK_MAX_POSITION: Vector2 = Vector2(1280 + 512, 700)
 const DUCK_DURATION_MIN: float = 3.0
 const DUCK_DURATION_MAX: float = 12.0
 
+@onready var _credits: Control = $Credits
+
 func _ready() -> void:
 	for d in _ducks:
 		_animate_ducks(d)
@@ -27,12 +29,11 @@ func _animate_ducks(d: Duck):
 	).from(
 	Vector2(DUCK_MIN_POSITION.x, d.get_position().y)).set_delay(duration / 4)
 
-
-
-
 func _on_play_button_pressed(button: UIButton) -> void:
 	play_initiated.emit()
 
-
 func _on_credits_button_pressed(button: UIButton) -> void:
-	credits_initiated.emit()
+	_credits.set_visible(true)
+
+func _on_credits_close_button_pressed(button) -> void:
+	_credits.set_visible(false)

@@ -3,19 +3,15 @@ extends Level
 func _init() -> void:
 	title = "2-1"
 	theme = Global.LevelTheme.ASIA
-	size = Vector2i(5, 5)
-	goal_count = 3
+	size = Vector2i(4, 4)
+	goal_count = 2
 	pieces = [
 		LevelPiece.new(Piece.Entity.DUCK, 0, 0),
-		LevelPiece.new(Piece.Entity.DUCKLING, 4, 1),
-		LevelPiece.new(Piece.Entity.DUCKLING, 4, 3),
-		LevelPiece.new(Piece.Entity.DUCKLING, 1, 4),
-		LevelPiece.new(Piece.Obstacle.ROCK_1, 4, 2),
-		LevelPiece.new(Piece.Obstacle.ROCK_1, 0, 3),
-		LevelPiece.new(Piece.Obstacle.ROCK_1, 4, 4),
+		LevelPiece.new(Piece.Entity.DUCKLING, 0, 2),
+		LevelPiece.new(Piece.Entity.DUCKLING, 1, 1),
+		LevelPiece.new(Piece.Obstacle.BAMBOO_1, 1, 3),
+		LevelPiece.new(Piece.Obstacle.BAMBOO_1, 2, 3),
 	]
 	actions = [
-		LevelAction.new(Global.Action.STRAIGHT_1, 2),
-		LevelAction.new(Global.Action.STRAIGHT_2_TURN_1, 1),
-		LevelAction.new(Global.Action.STRAIGHT_3_TURN_1, 3),
+		LevelAction.new(Global.Action.STRAIGHT_2_TURN_1, 2),
 	]

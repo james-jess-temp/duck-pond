@@ -1,7 +1,7 @@
 extends Level
 
 func _init() -> void:
-	title = "Test Level"
+	title = "TEST"
 	theme = Global.LevelTheme.DESERT
 	size = Vector2i(16, 9)
 	goal_count = 3

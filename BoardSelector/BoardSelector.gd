@@ -24,7 +24,15 @@ func _init_grid(size: Vector2i) -> void:
 	_grid = grid
 
 func init_selectors(size: Vector2i) -> void:
-	reset()
+
+	# get rid of all of em
+	for l in _list:
+		self.remove_child(l)
+		l.queue_free()
+	_list = []
+	_list_modified = []
+	_grid = [[]]
+
 	_size = size
 	_init_grid(size)
 	_list.resize(size.x * size.y)

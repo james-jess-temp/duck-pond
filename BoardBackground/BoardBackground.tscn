@@ -10,3 +10,6 @@ script = ExtResource("1_x3adw")
 tile_set = ExtResource("2_kkk4i")
 format = 2
 layer_0/name = "default"
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0

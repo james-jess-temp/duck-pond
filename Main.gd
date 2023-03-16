@@ -6,10 +6,20 @@ const Screen = {
 	Game = preload("res://Game/Game.tscn")
 }
 
+const Sound = {
+	SHHHH = preload("res://_assets/Audio/duck_word.wav")
+}
+
 @onready var _screen_container: Node = $ScreenContainer
+@onready var _audio_player: AudioStreamPlayer = $AudioPlayer
 
 var _current_screen: Node = null
 var _previous_screen: Node = null
+
+func _input(e):
+	if e is InputEventKey and Input.is_action_pressed("duck_word"):
+		_audio_player.set_stream(Sound.SHHHH)
+		_audio_player.play()
 
 func _ready() -> void:
 	_switch_to_title_screen()

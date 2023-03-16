@@ -7,8 +7,7 @@ signal back_initiated()
 @onready var _vbox: Node = find_child("VBox")
 
 const _button_scene = preload("res://UIButton/UIButton.tscn")
-
-const MAX_GRID_SIZE: Vector2i = Vector2i(6,5)
+const MAX_GRID_SIZE: Vector2i = Vector2i(5,5)
 
 var _list: Array[Level]
 var _button_list: Array[UIButton]
@@ -34,6 +33,9 @@ func _ready() -> void:
 		button.set_text(level.title)
 		button.button_pressed.connect(_on_level_button_pressed)
 		_button_list[i] = button
+		# Hide test level
+		if (level.title == "TEST"):
+			button.set_modulate(Color(0,0,0,0))
 
 func _on_level_button_pressed(button: UIButton) -> void:
 	print(button._label.get_text())

@@ -37,7 +37,6 @@ anchor_bottom = 1.0
 offset_top = -356.0
 offset_right = 512.0
 grow_vertical = 0
-tooltip_text = "Test"
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_3gl5e")
@@ -93,4 +92,7 @@ theme_override_fonts/font = ExtResource("7_0uguw")
 theme_override_font_sizes/font_size = 80
 text = "x99"
 
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="Control/Button" to="." method="_on_button_hover"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

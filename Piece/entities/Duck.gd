@@ -1,5 +1,10 @@
 class_name Duck extends EntityPiece
 
+const Sound = {
+	MOVE = preload("res://_assets/Audio/water_drop.wav"),
+	STOP = preload("res://_assets/Audio/quack.wav")
+}
+
 @onready var _bubble_particles: CPUParticles2D = $BubbleParticle
 
 func _on_move(from: Vector2i, to: Vector2i) -> void:
@@ -20,6 +25,8 @@ func _on_move(from: Vector2i, to: Vector2i) -> void:
 		_sprite.flip_h = false
 
 	_bubble_particles.set_emitting(true)
+	_audio_player.set_stream(Sound.MOVE)
+	_audio_player.play()
 
 func _on_move_finished() -> void:
 	var current_animation: String = _sprite.get_animation()
@@ -31,3 +38,5 @@ func _on_move_finished() -> void:
 		_sprite.set_animation("idle_back")
 
 	_bubble_particles.set_emitting(false)
+	_audio_player.set_stream(Sound.STOP)
+	_audio_player.play()

@@ -53,4 +53,7 @@ text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="Control/ButtonBackground" to="." method="_on_hover"]
 [connection signal="pressed" from="Control/ButtonBackground" to="." method="_on_button_pressed"]

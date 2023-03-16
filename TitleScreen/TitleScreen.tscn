@@ -27,21 +27,21 @@ texture = ExtResource("1_wivwe")
 y_sort_enabled = true
 
 [node name="Duck1" parent="Ducks" instance=ExtResource("2_4a47e")]
-position = Vector2(1399, 434)
+position = Vector2(1399, 421)
 
 [node name="Duckling" parent="Ducks/Duck1" instance=ExtResource("3_af30b")]
 position = Vector2(-60, 9)
 scale = Vector2(-1, 1)
 
 [node name="Duck2" parent="Ducks" instance=ExtResource("2_4a47e")]
-position = Vector2(1394, 546)
+position = Vector2(1394, 533)
 
 [node name="Duckling" parent="Ducks/Duck2" instance=ExtResource("3_af30b")]
 position = Vector2(-60, 9)
 scale = Vector2(-1, 1)
 
 [node name="Duck3" parent="Ducks" instance=ExtResource("2_4a47e")]
-position = Vector2(1397, 657)
+position = Vector2(1397, 644)
 
 [node name="Duckling" parent="Ducks/Duck3" instance=ExtResource("3_af30b")]
 position = Vector2(-60, 9)
@@ -85,5 +85,105 @@ text = "Play"
 layout_mode = 2
 text = "Credits"
 
+[node name="Credits" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.886275)
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_ytjr3")
+theme_override_font_sizes/font_size = 64
+text = "Credits
+"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+
+[node name="Name" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_ytjr3")
+theme_override_font_sizes/font_size = 40
+text = "ceruleancerise"
+horizontal_alignment = 1
+
+[node name="Type" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_ytjr3")
+theme_override_font_sizes/font_size = 20
+text = "Developer, Level Designer"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
+[node name="Name2" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_ytjr3")
+theme_override_font_sizes/font_size = 40
+text = "melosprout"
+horizontal_alignment = 1
+
+[node name="Type2" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_ytjr3")
+theme_override_font_sizes/font_size = 20
+text = "Artist, UI Designer, Level Designer"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+
+[node name="Name3" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_ytjr3")
+theme_override_font_sizes/font_size = 20
+text = "Thanks to fletchmakes"
+horizontal_alignment = 1
+
+[node name="Type3" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_ytjr3")
+theme_override_font_sizes/font_size = 20
+text = "for hosting Fletchfest 2023!"
+horizontal_alignment = 1
+
+[node name="UIButton" parent="Credits/MarginContainer/VBoxContainer" instance=ExtResource("5_lhkeg")]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Close"
+
 [connection signal="button_pressed" from="MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="button_pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="button_pressed" from="Credits/MarginContainer/VBoxContainer/UIButton" to="." method="_on_credits_close_button_pressed"]

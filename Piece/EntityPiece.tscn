@@ -20,3 +20,5 @@ script = ExtResource("2_0jv3l")
 
 [node name="Sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_w6t1i")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." index="1"]

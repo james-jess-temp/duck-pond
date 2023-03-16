@@ -37,5 +37,9 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_3p1mb")
 texture_pressed = ExtResource("5_onqof")
 
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="Control/VBoxContainer/HomeButton" to="." method="_on_button_hover"]
 [connection signal="pressed" from="Control/VBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/ResetButton" to="." method="_on_button_hover"]
 [connection signal="pressed" from="Control/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
