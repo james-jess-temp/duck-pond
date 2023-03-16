@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://capm6bjx1jrnq"]
+
+[ext_resource type="Script" path="res://Game/Game.gd" id="1_jfxy8"]
+[ext_resource type="PackedScene" uid="uid://ckv5bvnmv6jxw" path="res://Board/Board.tscn" id="1_y6utv"]
+[ext_resource type="PackedScene" uid="uid://7t8dlqnliqsn" path="res://GameUI/GameUI.tscn" id="3_88uhv"]
+[ext_resource type="PackedScene" uid="uid://n6gmg656w0j" path="res://GameUILevelComplete/GameUILevelComplete.tscn" id="4_c3m3c"]
+
+[node name="Game" type="Control"]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jfxy8")
+
+[node name="Components" type="Node" parent="."]
+
+[node name="Camera" type="Camera2D" parent="Components"]
+anchor_mode = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="Board" parent="Components/Camera" instance=ExtResource("1_y6utv")]
+
+[node name="GameUI" parent="Components" instance=ExtResource("3_88uhv")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="GameUILevelComplete" parent="Components" instance=ExtResource("4_c3m3c")]
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[connection signal="action_finished" from="Components/Camera/Board" to="." method="_on_action_finished"]
+[connection signal="goal_obtained" from="Components/Camera/Board" to="." method="_on_goal_obtained"]
+[connection signal="level_complete" from="Components/Camera/Board" to="." method="_on_level_complete"]
+[connection signal="level_loaded" from="Components/Camera/Board" to="." method="_on_level_loaded"]
+[connection signal="action_initiated" from="Components/GameUI" to="." method="_on_action_initiated"]
+[connection signal="home_initiated" from="Components/GameUI" to="." method="_on_home_initiated"]
+[connection signal="reset_initiated" from="Components/GameUI" to="." method="_on_reset_initiated"]
+[connection signal="home_initiated" from="Components/GameUILevelComplete" to="." method="_on_home_initiated"]
+[connection signal="next_level_initiated" from="Components/GameUILevelComplete" to="." method="_on_next_level_initiated"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://b76n2x3yrgbtt"]
+
+[ext_resource type="Script" path="res://UIButton/UIButton.gd" id="1_1dq5p"]
+[ext_resource type="Texture2D" uid="uid://dshmadi8pvx1t" path="res://_assets/UIButton/button.png" id="2_u43pb"]
+[ext_resource type="Texture2D" uid="uid://cspt7yuypmfp" path="res://_assets/UIButton/button-pressed.png" id="3_kd2u3"]
+[ext_resource type="FontFile" uid="uid://nx68mmbkbjar" path="res://_assets/Font/FredokaOne-Regular.ttf" id="4_wwvcp"]
+
+[node name="UIButton" type="Control"]
+custom_minimum_size = Vector2(128, 89)
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.6
+anchor_bottom = 0.624
+offset_bottom = -0.279999
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("1_1dq5p")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+
+[node name="ButtonBackground" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_u43pb")
+texture_pressed = ExtResource("3_kd2u3")
+
+[node name="Text" type="Label" parent="Control/ButtonBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.647059, 0.4, 0.235294, 1)
+theme_override_fonts/font = ExtResource("4_wwvcp")
+theme_override_font_sizes/font_size = 128
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="Control/ButtonBackground" to="." method="_on_hover"]
+[connection signal="pressed" from="Control/ButtonBackground" to="." method="_on_button_pressed"]

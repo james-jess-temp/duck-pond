@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpj5rdlw8pv6f"]
+
+[ext_resource type="PackedScene" uid="uid://bhwlic4l4j2js" path="res://Piece/Piece.tscn" id="1_su65l"]
+[ext_resource type="Texture2D" uid="uid://b5uk6pv3rlty2" path="res://_assets/ObstaclePiece/_default.png" id="2_h3vsd"]
+[ext_resource type="Script" path="res://Piece/ObstaclePiece.gd" id="2_yvo4o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krdj4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h3vsd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Obstacle" instance=ExtResource("1_su65l")]
+script = ExtResource("2_yvo4o")
+
+[node name="Sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_krdj4")

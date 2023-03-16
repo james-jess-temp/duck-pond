@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsbe7n4bx76ha"]
+
+[ext_resource type="Script" path="res://BoardBackground/BoardBackground.gd" id="1_x3adw"]
+[ext_resource type="TileSet" uid="uid://in6ed2qboi8f" path="res://BoardBackground/tilesets/BasicTileSet.tres" id="2_kkk4i"]
+
+[node name="BoardBackground" type="Node2D"]
+script = ExtResource("1_x3adw")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_kkk4i")
+format = 2
+layer_0/name = "default"
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0

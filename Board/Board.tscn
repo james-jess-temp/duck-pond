@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckv5bvnmv6jxw"]
+
+[ext_resource type="Script" path="res://Board/Board.gd" id="1_lggxd"]
+[ext_resource type="PackedScene" uid="uid://qc20b66thevv" path="res://BoardBackground/BoardBackground.tscn" id="2_bqte7"]
+[ext_resource type="PackedScene" uid="uid://bsjs2m5nalpsu" path="res://BoardSelector/BoardSelector.tscn" id="3_eqa4k"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_lggxd")
+
+[node name="BoardBackground" parent="." instance=ExtResource("2_bqte7")]
+
+[node name="LayerContainer" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BoardSelector" parent="." instance=ExtResource("3_eqa4k")]

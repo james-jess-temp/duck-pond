@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b44tymo5ymjx5"]
+
+[ext_resource type="PackedScene" uid="uid://bhwlic4l4j2js" path="res://Piece/Piece.tscn" id="1_6uhd3"]
+[ext_resource type="Script" path="res://Piece/EntityPiece.gd" id="2_0jv3l"]
+[ext_resource type="Texture2D" uid="uid://belluoe1f61nd" path="res://_assets/EntityPiece/Duck/side/_default.png" id="2_lqy1g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w6t1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lqy1g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Entity" instance=ExtResource("1_6uhd3")]
+script = ExtResource("2_0jv3l")
+
+[node name="Sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_w6t1i")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." index="1"]

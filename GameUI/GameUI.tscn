@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://7t8dlqnliqsn"]
+
+[ext_resource type="Script" path="res://GameUI/GameUI.gd" id="1_pfd2o"]
+[ext_resource type="PackedScene" uid="uid://cq85uhwls152i" path="res://GameUI/GameUILevel.tscn" id="2_bwq77"]
+[ext_resource type="PackedScene" uid="uid://bgehrpdd37txi" path="res://GameUI/GameUIGoal.tscn" id="3_6of3b"]
+[ext_resource type="PackedScene" uid="uid://c45m8tnmtd21d" path="res://GameUI/GameUIAction.tscn" id="4_cghir"]
+[ext_resource type="PackedScene" uid="uid://basignfhlf7dv" path="res://GameUI/GameUIOptions.tscn" id="5_2x5mb"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pfd2o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Markers" type="Control" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TopLeftMarker" type="Label" parent="MarginContainer/Markers"]
+layout_mode = 1
+offset_right = 1280.0
+offset_bottom = 26.0
+size_flags_vertical = 0
+text = "|"
+
+[node name="TopRightMarker" type="Label" parent="MarginContainer/Markers"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1280.0
+offset_bottom = 26.0
+grow_horizontal = 0
+size_flags_vertical = 0
+text = "|"
+horizontal_alignment = 2
+
+[node name="BottomLeftMarker" type="Label" parent="MarginContainer/Markers"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = 1280.0
+grow_vertical = 0
+size_flags_vertical = 8
+text = "|"
+
+[node name="BottomRightMarker" type="Label" parent="MarginContainer/Markers"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1280.0
+offset_top = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+text = "|"
+horizontal_alignment = 2
+
+[node name="GameUILevel" parent="MarginContainer" instance=ExtResource("2_bwq77")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="GameUIGoal" parent="MarginContainer" instance=ExtResource("3_6of3b")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="GameUIAction" parent="MarginContainer" instance=ExtResource("4_cghir")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="GameUIOptions" parent="MarginContainer" instance=ExtResource("5_2x5mb")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[connection signal="action_initiated" from="MarginContainer/GameUIAction" to="." method="_on_action_initiated"]
+[connection signal="home_button_pressed" from="MarginContainer/GameUIOptions" to="." method="_on_home_button_pressed"]
+[connection signal="reset_button_pressed" from="MarginContainer/GameUIOptions" to="." method="_on_reset_initiated"]
